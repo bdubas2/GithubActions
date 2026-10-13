@@ -139,3 +139,4 @@ In GitHub, that will look like the following:
 ![pr overview passed](./assets/imgs/passed-pull.PNG)
 
 If everything passes, feel free to merge. You are now using CI.
+GitHub Actions CI configured by Brandon Dubas.
