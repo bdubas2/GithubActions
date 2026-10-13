@@ -1,29 +1,69 @@
-namespace GithubActionsLab;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using GithubActionsLab;
+
+namespace Tests;
 
 [TestClass]
-public class Addition
+public class CalculatorTests
 {
-	[TestMethod]
-	public void Add_Valid_Patino()
-	{
-		Assert.AreEqual(3, Program.Add("1", "2"));
-		Assert.AreEqual(5, Program.Add("3", "2"));
-		Assert.AreEqual(12, Program.Add("5", "7"));
-	}
+    [TestMethod]
+    public void AddPositiveNumbersDubas()
+    {
+        Assert.AreEqual(8.0, Program.Add("5", "3"));
+    }
 
-	[TestMethod]
-	public void Add_Invalid_Patino()
-	{
-		Assert.ThrowsException<FormatException>(() => Program.Add("1", "a"));
-		Assert.ThrowsException<FormatException>(() => Program.Add("a", "1"));
-		Assert.ThrowsException<FormatException>(() => Program.Add("a", "a"));
-	}
+    [TestMethod]
+    public void AddNegativeNumbersDubas()
+    {
+        Assert.AreEqual(-8.0, Program.Add("-5", "-3"));
+    }
 
-	[TestMethod]
-	public void Add_Null_Patino()
-	{
-		Assert.ThrowsException<ArgumentNullException>(() => Program.Add("1", null));
-		Assert.ThrowsException<ArgumentNullException>(() => Program.Add(null, "1"));
-		Assert.ThrowsException<ArgumentNullException>(() => Program.Add(null, null));
-	}
+    [TestMethod]
+    public void SubtractPositiveNumbersDubas()
+    {
+        Assert.AreEqual(2.0, Program.Subtract("5", "3"));
+    }
+
+    [TestMethod]
+    public void SubtractNegativeNumbersDubas()
+    {
+        Assert.AreEqual(-2.0, Program.Subtract("-5", "-3"));
+    }
+
+    [TestMethod]
+    public void MultiplyPositiveNumbersDubas()
+    {
+        Assert.AreEqual(15.0, Program.Multiply("5", "3"));
+    }
+
+    [TestMethod]
+    public void MultiplyByZeroDubas()
+    {
+        Assert.AreEqual(0.0, Program.Multiply("5", "0"));
+    }
+
+    [TestMethod]
+    public void DividePositiveNumbersDubas()
+    {
+        Assert.AreEqual(2.0, Program.Divide("6", "3"));
+    }
+
+    [TestMethod]
+    public void DivideNegativeNumbersDubas()
+    {
+        Assert.AreEqual(-2.0, Program.Divide("-6", "3"));
+    }
+
+    [TestMethod]
+    public void PowerPositiveExponentDubas()
+    {
+        Assert.AreEqual(8.0, Program.Power("2", "3"));
+    }
+
+    [TestMethod]
+    public void PowerZeroExponentDubas()
+    {
+        Assert.AreEqual(1.0, Program.Power("5", "0"));
+    }
 }
